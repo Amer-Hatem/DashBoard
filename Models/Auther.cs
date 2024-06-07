@@ -2,7 +2,7 @@
 
 namespace DashBoard.Models
 {
-    public class Category
+    public class Auther
     {
         public int Id { get; set; }
         [MaxLength(30)]
@@ -10,6 +10,6 @@ namespace DashBoard.Models
 
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public DateTime UpDate { get; set; } = DateTime.Now;
-        public List<BookCategory> Book { get; set; } = new List<BookCategory>();
+
     }
 }

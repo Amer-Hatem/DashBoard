@@ -15,6 +15,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="~/DashBoard/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="~/DashBoard/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="~/css/custom.css">
 </head>
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
@@ -227,7 +228,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li>
                         
                         <li class="nav-item">
-                            <a href="/Categories/Index" class="nav-link">
+                            <a asp-controller="Categories" asp-action="Index" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Categories
@@ -235,7 +236,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </p>
                             </a>
                         </li>
-
+                        <li class="nav-item">
+                            <a asp-controller="Authers" asp-action="Index" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Authers
+                                    <span class="right badge badge-danger">New</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Book" asp-action="Index" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Books
+                                    <span class="right badge badge-danger">New</span>
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -250,7 +268,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Starter Page</h1>
+                            <h1 class="m-0"> @RenderSection("Title")</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -268,16 +286,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="row">
                      
 
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5 class="m-0">Featured</h5>
+                            <div class="card w-100">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5 class="m-0">
+                                    @RenderSection("SubTitle")
+                                </h5>
+                                @RenderSection("Button",false)
+
                                 </div>
                                 <div class="card-body">
                                 
 
                                 @RenderBody()
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                
                                 </div>
                             </div>
 

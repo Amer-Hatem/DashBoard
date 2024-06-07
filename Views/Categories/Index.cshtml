@@ -1,24 +1,32 @@
 ﻿@model List<Category>
-
+@section Title {
+    Categories
+}
+@section SubTitle {
+  Create
+}
+@section button {
+    <a asp-controller="Categories" asp-action="Create" class="btn btn-primary">Create</a>
+}
 <table class="table table-sm">
     <thead>
         <tr>
             <th style="width: 10px">#</th>
             <th>Name</th>
-        
+            <td>Action</td>
         </tr>
     </thead>
     <tbody>
 
        @if(!Model.Any())
         {
-        <div class="alert alert-danger alert-dismissible">
+        /*<div class="alert alert-danger alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <h5><i class="icon fas fa-ban"></i> Alert!</h5>
             Danger alert preview. This alert is dismissable. A wonderful serenity has taken possession of my
             entire
             soul, like these sweet mornings of spring which I enjoy with my whole heart.
-        </div>
+        </div>*/
         }
         else{
         @foreach (var item in Model)
@@ -27,7 +35,18 @@
             <tr>
 
                 <td>@item.Id </td>
-                <td>@item.Name </td>
+                    <td>@item.Name </td>
+
+                    <td>
+                        <a asp-controller="Categories" asp-action="Edit" class="btn btn-primary"
+                           asp-route-id="@item.Id">Edit</a>
+                        <a asp-controller="Categories" asp-action="Details" class="btn btn-primary"
+                           asp-route-id="@item.Id">Details</a>
+                        <a asp-controller="Categories" asp-action="Delete" class="btn btn-primary"
+                           asp-route-id="@item.Id">Delete</a>
+                    </td>
+                    
+               
 
             </tr>
 

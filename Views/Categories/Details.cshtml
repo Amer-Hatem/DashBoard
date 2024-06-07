@@ -1,0 +1,46 @@
+﻿@model CategoryVM
+@section Title {
+    Details
+}
+@section SubTitle {
+  SHOW
+}
+ 
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th style="width: 10px">#</th>
+            <th>Name</th>
+            <td>CreatedDate</td>
+            <td>UpDate</td>
+        </tr>
+    </thead>
+    <tbody>
+
+       
+       
+            
+                <tr>
+
+            <td>@Model.ID </td>
+            <td>@Model.Name </td>
+
+                    <td>
+                       @Model.CreatedDate
+                    </td>
+                    <td>
+                       @Model.UpDate
+                    </td>
+
+
+                </tr>
+
+
+           
+       
+
+
+
+
+    </tbody>
+</table>

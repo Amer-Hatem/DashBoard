@@ -1,0 +1,22 @@
+﻿@using DashBoard.ViewModel
+@model CategoryVM
+
+@section Title {
+  
+}
+@section SubTitle {
+    @(Model?.ID == null ? "Create":"Edit")
+}
+@section button {
+    <a asp-controller="Categories" asp-action="Create" class="btn btn-primary">Create</a>
+}
+
+<form asp-controller="Categories"  >
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input type="text" class="form-control" asp-for="Name" >
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary" asp-validation-for="submit"> @(Model?.ID == null ? "Add" : "Edit")</button>
+</form>

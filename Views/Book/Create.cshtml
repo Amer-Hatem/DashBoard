@@ -1,0 +1,51 @@
+﻿@using DashBoard.ViewModel
+@model BookFormVM
+
+@section Title {
+    Books
+}
+@section SubTitle {
+  Create
+}
+@section button {
+    <a asp-controller="Categories" asp-action="Create" class="btn btn-primary">Create</a>
+}
+
+<form asp-controller="Book" asp-action="Create" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input type="text" class="form-control" asp-for="Title">
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="AutherId"></label>
+        <select asp-for="AutherId" class="form-control" asp-items="@Model.Authers"></select>
+        <span asp-validation-for="AutherId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="publisher"></label>
+        <input type="text" class="form-control" asp-for="publisher">
+        <span asp-validation-for="publisher" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="publisherDate"></label>
+        <input type="date" class="form-control" asp-for="publisherDate">
+        <span asp-validation-for="publisherDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImageUrl"></label>
+        <input type="file" class="form-control" asp-for="ImageUrl">
+        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SelectCate"></label>
+        <select asp-for="SelectCate" class="form-control" asp-items="@Model.Categorise"></select>
+        <span asp-validation-for="SelectCate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary"> Add</button>
+</form>
